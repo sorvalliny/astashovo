@@ -30,6 +30,15 @@ function sheet_() {
   return sh;
 }
 
+/**
+ * Таблица считает формулой всё, что начинается с = + - @ — телефон «+7 900…»
+ * превращался в #ERROR!. Апостроф впереди заставляет хранить значение текстом.
+ */
+function text_(v) {
+  var s = (v === null || v === undefined) ? '' : String(v);
+  return /^[=+\-@]/.test(s) ? "'" + s : s;
+}
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   try {
@@ -40,17 +49,17 @@ function doPost(e) {
 
     sheet_().appendRow([
       new Date(),
-      d.who || '',
-      d.tg || '',
-      d.phone || '',
-      d.tariff || '',
+      text_(d.who),
+      text_(d.tg),
+      text_(d.phone),
+      text_(d.tariff),
       Number(d.people) || '',
       Number(d.price) || '',
       Number(d.total) || '',
       d.payMode || '',
       Number(d.due) || '',
-      names.join('\n'),
-      d.comment || '',
+      text_(names.join('\n')),
+      text_(d.comment),
       'Новая',
       ''
     ]);
