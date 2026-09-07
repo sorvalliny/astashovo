@@ -82,3 +82,19 @@ function json_(obj) {
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
+/**
+ * Разовая уборка: удаляет строки, где «Кто бронирует» начинается с «ТЕСТ».
+ * Запускать вручную из редактора: выбрать функцию в списке и нажать «Выполнить».
+ */
+function cleanupTestRows() {
+  var sh = sheet_();
+  var last = sh.getLastRow();
+  if (last < 2) return;
+  var col = sh.getRange(2, 2, last - 1, 1).getValues();
+  var killed = 0;
+  for (var i = col.length - 1; i >= 0; i--) {
+    if (String(col[i][0]).indexOf('ТЕСТ') === 0) { sh.deleteRow(i + 2); killed++; }
+  }
+  Logger.log('Удалено строк: ' + killed);
+}
