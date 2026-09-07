@@ -95,7 +95,8 @@ section+section{border-top:1px solid var(--line)}
 /* ─── герой ─── */
 .hero{padding-top:clamp(42px,6vw,74px);padding-bottom:clamp(42px,6vw,66px)}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:end}
-@media(min-width:880px){.hero-grid{grid-template-columns:1.12fr .88fr;gap:48px}}
+@media(min-width:880px){.hero-grid{grid-template-columns:1fr 1.12fr;gap:44px}}
+@media(min-width:1100px){.hero .wrap{max-width:1180px}}
 .hero h1{margin:16px 0 0}
 .hero h1 em{font-style:italic;color:var(--bronze);font-weight:400}
 .hero-lead{font-size:1.14rem;color:var(--ink-soft);max-width:34ch;margin-top:20px}
@@ -105,7 +106,7 @@ section+section{border-top:1px solid var(--line)}
 .fact:nth-child(odd){border-right:1px solid var(--line);padding-right:22px}
 .fact:nth-child(even){padding-left:22px}
 .fact:nth-child(n+3){border-top:1px solid var(--line)}
-@media(min-width:1040px){
+@media(min-width:1260px){
   .facts{grid-template-columns:repeat(4,auto);justify-content:start}
   .fact{padding:15px 22px 15px 0;margin-right:22px;border-right:1px solid var(--line)}
   .fact:nth-child(even){padding-left:0}
@@ -116,9 +117,10 @@ section+section{border-top:1px solid var(--line)}
   letter-spacing:.17em;color:var(--muted);margin-bottom:6px}
 .fact dd{margin:0;font-size:1.02rem;font-weight:500;white-space:nowrap}
 
-.terem{width:100%;height:auto;max-width:340px;margin-inline:auto;display:block;color:var(--pine)}
-.terem .ln{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
-.terem .fine{stroke-width:1.1;opacity:.72}
+.terem{width:100%;height:auto;max-width:620px;max-height:480px;margin-inline:auto;
+  display:block;color:var(--pine)}
+.terem .ln{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linejoin:round;stroke-linecap:round}
+.terem .fine{stroke-width:.8;opacity:.72}
 .terem .dot{fill:var(--bronze);opacity:.9}
 .terem .glow{fill:var(--gold);opacity:.2}
 @media (prefers-reduced-motion: no-preference){
@@ -134,6 +136,22 @@ section+section{border-top:1px solid var(--line)}
   @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 }
 
+/* ─── reels ─── */
+.why{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media(min-width:560px){.why{max-width:520px;margin-inline:auto}}
+@media(min-width:880px){.why{grid-template-columns:300px 1fr;gap:54px;max-width:none;margin-inline:0}}
+.reel{margin:0;display:flex;flex-direction:column;gap:11px}
+.reel-frame{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--line-strong);
+  background:var(--paper-2);box-shadow:var(--shadow)}
+.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--paper-2)}
+.sound{position:absolute;right:10px;bottom:10px;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:#fff;cursor:pointer;
+  background:rgba(20,17,12,.62);border:1px solid rgba(255,255,255,.32);border-radius:100px;
+  padding:7px 13px;backdrop-filter:blur(6px);transition:background .15s ease}
+.sound:hover{background:rgba(20,17,12,.82)}
+.reel figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;
+  text-transform:uppercase;letter-spacing:.15em;color:var(--muted);text-align:center}
+
 .quote{border-left:2px solid var(--gold);padding:4px 0 4px 26px;
   font-family:Cormorant,Georgia,serif;font-size:1.42rem;line-height:1.45;color:var(--ink)}
 .quote p+p{margin-top:15px}
@@ -143,6 +161,10 @@ section+section{border-top:1px solid var(--line)}
 .day-row{display:grid;grid-template-columns:1fr;gap:6px;padding:27px 0;border-top:1px solid var(--line)}
 .day-row:last-child{border-bottom:1px solid var(--line)}
 @media(min-width:760px){.day-row{grid-template-columns:154px 1fr;gap:32px;align-items:start}}
+@media(min-width:980px){.day-row{grid-template-columns:154px 1fr 208px;gap:36px}}
+.day-photo{display:block;width:100%;max-width:270px;height:auto;aspect-ratio:500/783;object-fit:cover;
+  border:1px solid var(--line);border-radius:3px;margin-top:6px;background:var(--paper-2)}
+@media(min-width:980px){.day-photo{max-width:none;margin-top:0}}
 .day-mark{display:flex;flex-direction:column;gap:3px}
 .day-mark .dw{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.17em;
   text-transform:uppercase;color:var(--muted)}
@@ -167,6 +189,18 @@ section+section{border-top:1px solid var(--line)}
   border-top:1px solid var(--line)}
 .part li::before{content:"";position:absolute;left:0;top:1.05em;width:9px;height:1.5px;background:var(--gold)}
 .part .sub{font-size:.9rem;color:var(--muted)}
+
+/* ─── галерея ─── */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:620px){.gal{grid-template-columns:repeat(4,1fr)}}
+.gal figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.gal img{display:block;width:100%;height:auto;aspect-ratio:500/783;object-fit:cover;
+  border:1px solid var(--line);border-radius:3px;background:var(--paper-2);
+  transition:transform .25s ease, border-color .25s ease}
+.gal figure:hover img{transform:translateY(-3px);border-color:var(--line-strong)}
+@media (prefers-reduced-motion: reduce){.gal figure:hover img{transform:none}}
+.gal figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);line-height:1.5}
 
 /* ─── тарифы ─── */
 .tariffs{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:52px}
@@ -241,11 +275,24 @@ section+section{border-top:1px solid var(--line)}
 .book{background:var(--paper);border:1px solid var(--line-strong);border-radius:2px;
   padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:1fr;gap:26px}
 @media(min-width:840px){.book{grid-template-columns:1fr 1fr;gap:42px}}
-.fields{display:flex;flex-direction:column;gap:18px}
+.fields{display:flex;flex-direction:column;gap:17px}
+.row2{display:grid;grid-template-columns:1fr;gap:17px}
+@media(min-width:460px){.row2{grid-template-columns:1fr 1fr}}
+.names{display:flex;flex-direction:column;gap:8px}
+.name-row{display:flex;align-items:center;gap:10px}
+.name-row input{flex:1 1 auto;min-width:0}
+.name-row .i{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.7rem;color:var(--muted);
+  width:18px;flex:none;text-align:right}
+.fhint{font-size:.76rem;color:var(--muted);margin-top:2px;line-height:1.5}
+input.bad{border-color:#B3432E}
+:root:not([data-theme="light"]) input.bad{border-color:#E08163}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) input.bad{border-color:#B3432E}}
+.sent{margin-top:12px;font-size:.86rem;color:var(--pine);display:none}
+.sent.on{display:block}
 .field{display:flex;flex-direction:column;gap:7px}
 .field label{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;text-transform:uppercase;
   letter-spacing:.17em;color:var(--muted)}
-select,input[type=text]{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--cream);
+select,input[type=text],input[type=tel]{font-family:inherit;font-size:1rem;color:var(--ink);background:var(--cream);
   border:1px solid var(--line-strong);border-radius:2px;padding:11px 13px;width:100%}
 .radios{display:flex;gap:10px;flex-wrap:wrap}
 .radio{flex:1 1 140px;position:relative}
@@ -395,12 +442,24 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
 <main>
 
 <section>
-  <div class="wrap narrow stack">
-    <p class="eyebrow">Почему это место</p>
-    <blockquote class="quote">
-      <p>За неделю до первого сплава в 2021-м я был в похожем туре от Novikov School. Мне дико зашло — и место, и формат. Тогда и подумал: почему бы не собрать там своих.</p>
-      <p>Момент настал. Мы выкупаем терем целиком и создаём ту самую атмосферу, которую умеем создавать — только без палаток, в старорусских традициях и с горячей водой.</p>
-    </blockquote>
+  <div class="wrap why">
+    <figure class="reel">
+      <div class="reel-frame">
+        <video id="reel" poster="media/poster.jpg" muted loop playsinline preload="metadata"
+               aria-label="Видео из Асташово, тур 2021 года">
+          <source src="media/astashovo-2021.mp4" type="video/mp4">
+        </video>
+        <button class="sound" id="reel-sound" type="button" aria-pressed="false">Включить звук</button>
+      </div>
+      <figcaption>Асташово, тот самый тур 2021 года</figcaption>
+    </figure>
+    <div class="stack">
+      <p class="eyebrow">Почему это место</p>
+      <blockquote class="quote">
+        <p>За неделю до первого сплава в 2021-м я был в похожем туре от Novikov School. Мне дико зашло — и место, и формат. Тогда и подумал: почему бы не собрать там своих.</p>
+        <p>Момент настал. Мы выкупаем терем целиком и создаём ту самую атмосферу, которую умеем создавать — только без палаток, в старорусских традициях и с горячей водой.</p>
+      </blockquote>
+    </div>
   </div>
 </section>
 
@@ -419,6 +478,8 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <p>Выезжаем из Москвы рано на комфортных микроавтобусах. В пути 5–7 часов без остановок. По дороге — Ростов Великий и Кострома, по желанию группы. Обед и вода в дорогу с нас: гастро-часть начинается сразу.</p>
           <p>На месте расселяемся. <span class="chef">Первый выход на кухню</span> — ужин задаёт планку двум остальным. Костёр.</p>
         </div>
+        <img class="day-photo" src="media/day-thu.jpg" alt="Терем Асташово в первый вечер"
+             loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
         <div class="day-mark"><span class="dw">Пятница</span><span class="dd num">09</span></div>
@@ -427,6 +488,8 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <p>Трекинг 7 км по обустроенному маршруту, грибы и ягоды. Что нашли — идёт в дело.</p>
           <p><span class="chef">Второй выход на кухню</span>, разбор с шефом. Вечером — баня по-чёрному и чан под открытым небом.</p>
         </div>
+        <img class="day-photo" src="media/day-fri.jpg" alt="Деревянный чан под открытым небом"
+             loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
         <div class="day-mark"><span class="dw">Суббота</span><span class="dd num">10</span></div>
@@ -435,6 +498,8 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <p>Переходим реку вброд и идём к терему в Погорелово — заброшенному, без электричества и туристов. Обратно на лодке.</p>
           <p>Вечером делаем настойки и тут же их дегустируем. <span class="chef">Финальный выход на кухню</span> и общее голосование. Костёр до последнего.</p>
         </div>
+        <img class="day-photo" src="media/day-sat.jpg" alt="Заброшенный терем в Погорелово"
+             loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
         <div class="day-mark"><span class="dw">Воскресенье</span><span class="dd num">11</span></div>
@@ -442,7 +507,53 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <h3>Домой</h3>
           <p>Завтрак, объявляем победителя, сборы, выезд в Москву.</p>
         </div>
+        <img class="day-photo" src="media/day-sun.jpg" alt="Общий стол в тереме"
+             loading="lazy" decoding="async" width="500" height="783">
       </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head narrow">
+      <p class="eyebrow">Как это было</p>
+      <h2>Кадры с прошлого раза</h2>
+      <p>Съёмки из того самого тура 2021 года: та же усадьба, та же кухня, тот же костёр.</p>
+    </div>
+    <div class="gal">
+      <figure>
+        <img src="media/g-table.jpg" alt="Общий стол" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Стол на всех</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-chef.jpg" alt="Битва шефов у мангала" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Битва шефов</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-fire.jpg" alt="Костёр во дворе терема" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Костёр до последнего</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-boat.jpg" alt="Лодка на озере" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Лодка</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-pogorelovo.jpg" alt="Внутри заброшенного терема в Погорелово" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Погорелово внутри</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-nastoyki.jpg" alt="Настойки собственного разлива" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Настойки</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-view.jpg" alt="Вид на усадьбу с холма" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Усадьба сверху</figcaption>
+      </figure>
+      <figure>
+        <img src="media/g-night.jpg" alt="Терем ночью с подсветкой" loading="lazy" decoding="async" width="500" height="783">
+        <figcaption>Терем ночью</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -506,17 +617,38 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     </div>
     <div class="book">
       <div class="fields">
-        <div class="field">
-          <label for="f-room">Тариф</label>
-          <select id="f-room"></select>
+        <div class="row2">
+          <div class="field">
+            <label for="f-room">Тариф</label>
+            <select id="f-room"></select>
+          </div>
+          <div class="field">
+            <label for="f-n">Сколько вас</label>
+            <select id="f-n"></select>
+          </div>
         </div>
         <div class="field">
-          <label for="f-n">Сколько вас</label>
-          <select id="f-n"></select>
+          <label for="f-who">Кто бронирует, ФИО</label>
+          <input type="text" id="f-who" placeholder="Иванов Иван Иванович" autocomplete="name">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-tg">Телеграм</label>
+            <input type="text" id="f-tg" placeholder="@username">
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input type="tel" id="f-phone" placeholder="+7 900 000-00-00" autocomplete="tel">
+          </div>
         </div>
         <div class="field">
-          <label for="f-who">Кто бронирует</label>
-          <input type="text" id="f-who" placeholder="Имя и фамилия" autocomplete="name">
+          <label id="names-label">Участники, ФИО полностью</label>
+          <div class="names" id="f-names"></div>
+          <p class="fhint">Как в паспорте — нужно для списков на трансфер. Паспортные данные пришлю запросом в личке, здесь их не вводите.</p>
+        </div>
+        <div class="field">
+          <label for="f-comment">Комментарий</label>
+          <input type="text" id="f-comment" placeholder="Пожелания по соседям, еде, дороге">
         </div>
         <div class="field">
           <label>Что оплачиваете сейчас</label>
@@ -538,6 +670,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <a class="btn" id="s-tg" href="#" target="_blank" rel="noopener">Отправить заявку в Телеграм</a>
           <button class="btn ghost" id="s-copy" type="button">Скопировать текст</button>
         </div>
+        <p class="sent" id="s-sent"></p>
         <p class="hint" id="s-hint"></p>
       </div>
     </div>
@@ -597,19 +730,21 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
 (function(){
   "use strict";
 
-  /* ===== ЗАПОЛНИТЬ ПЕРЕД ОТПРАВКОЙ УЧАСТНИКАМ =====
-     TG_HANDLE — телеграм-логин без «@». Пусто = кнопка только копирует текст.
-     PAY_URL   — ссылка на оплату (СБП/банк). Пусто = кнопка оплаты не показывается. */
-  var TG_HANDLE = "";
-  var PAY_URL   = "";
-  /* ================================================= */
+  /* ============ НАСТРОЙКИ ============
+     TG_HANDLE      — телеграм-логин без «@», куда падают заявки.
+     SHEET_ENDPOINT — URL веб-приложения Apps Script (см. apps-script/Code.gs).
+                      Пустой — заявка уходит только в Телеграм, таблица не пишется.
+     PAY_URL        — ссылка на оплату. Пустая — кнопка не показывается.        */
+  var TG_HANDLE      = "sorval";
+  var SHEET_ENDPOINT = "";
+  var PAY_URL        = "";
+  /* =================================== */
 
   /* Общая часть на человека. Одинакова для всех и входит в каждый тариф. */
   var PROGRAM = 34500;
 
   /* Три тарифа. price — за человека на весь выезд, внутри тарифа не меняется:
-     втроём и вшестером в «Трио+» платят одинаково.
-     min/max — сколько человек можно взять по этому тарифу.                  */
+     втроём и вшестером в «Трио+» платят одинаково.                          */
   var TARIFFS = [
     {id:"trio", name:"Трио+", price:48000, min:3, max:6, flag:"Выгоднее всего",
      sub:"Дом на компанию от трёх человек",
@@ -634,39 +769,32 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     if(txt !== undefined) e.textContent = txt;
     return e;
   }
+  function $(id){ return document.getElementById(id); }
 
   /* ---------- карточки тарифов ---------- */
-  var host = document.getElementById("rooms");
   var grid = el("div", "tariffs");
-
   TARIFFS.forEach(function(t){
     var card = el("article", "tariff" + (t.flag ? " pick" : ""));
     if(t.flag) card.appendChild(el("span", "flag", t.flag));
-
     card.appendChild(el("h3", "t-name", t.name));
     card.appendChild(el("p", "t-sub", t.sub));
-
     var price = el("div", "t-price", rub(t.price));
     price.appendChild(el("small", null, "с человека за весь выезд"));
     card.appendChild(price);
-
     card.appendChild(el("div", "t-split",
       rub(t.price - PROGRAM) + " место  +  " + rub(PROGRAM) + " общее"));
-
     card.appendChild(el("p", "t-sub", t.note));
-
     var ul = document.createElement("ul");
     t.rooms.forEach(function(r){ ul.appendChild(el("li", null, r)); });
     card.appendChild(ul);
-
     grid.appendChild(card);
   });
-  host.appendChild(grid);
+  $("rooms").appendChild(grid);
 
   /* ---------- конфигуратор ---------- */
-  var fRoom = document.getElementById("f-room");
-  var fN    = document.getElementById("f-n");
-  var fWho  = document.getElementById("f-who");
+  var fRoom = $("f-room"), fN = $("f-n"), fWho = $("f-who"),
+      fTg = $("f-tg"), fPhone = $("f-phone"), fComment = $("f-comment"),
+      fNames = $("f-names");
 
   TARIFFS.forEach(function(t){
     var o = el("option", null, t.name + " — " + rub(t.price) + " с человека");
@@ -692,60 +820,163 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     fN.disabled = opts.length === 1;
   }
 
+  /* поля ФИО: столько, сколько человек в заявке; введённое сохраняем */
+  function fillNames(){
+    var n = Number(fN.value) || current().min;
+    var was = names();
+    fNames.textContent = "";
+    for(var k = 0; k < n; k++){
+      var row = el("div", "name-row");
+      row.appendChild(el("span", "i", String(k + 1)));
+      var inp = document.createElement("input");
+      inp.type = "text";
+      inp.placeholder = k === 0 ? "Вы — фамилия, имя, отчество" : "Фамилия, имя, отчество";
+      inp.value = was[k] || "";
+      inp.addEventListener("input", function(){ this.classList.remove("bad"); render(); });
+      row.appendChild(inp);
+      fNames.appendChild(row);
+    }
+    $("names-label").textContent = n === 1 ? "Ваше ФИО полностью" : "Участники, ФИО полностью — " + n;
+  }
+
+  function nameInputs(){
+    return Array.prototype.slice.call(fNames.querySelectorAll("input"));
+  }
+  function names(){
+    return nameInputs().map(function(i){ return i.value.trim(); });
+  }
+
   function payShare(){
     var c = document.querySelector('input[name="pay"]:checked');
     return c ? Number(c.value) : 50;
   }
 
-  function render(){
+  function state(){
     var t = current(), n = Number(fN.value) || t.min;
-    var total = t.price * n, sh = payShare(), due = Math.round(total * sh / 100);
-
-    document.getElementById("s-room").textContent  = "Тариф «" + t.name + "»";
-    document.getElementById("s-seats").textContent = WORDS[n];
-    document.getElementById("s-fix").textContent   = rub(t.price - PROGRAM);
-    document.getElementById("s-per").textContent   = rub(t.price);
-    document.getElementById("s-total-lbl").textContent =
-      n === 1 ? "Итого" : "Итого за " + n + " человек";
-    document.getElementById("s-total").textContent = rub(total);
-    document.getElementById("s-pay-lbl").textContent =
-      sh === 100 ? "К оплате сейчас, полностью" : "К оплате сейчас, аванс 50%";
-    document.getElementById("s-pay").textContent   = rub(due);
-
-    var who = fWho.value.trim();
-    var lines = [
-      "Бронирую Гастро-Терем, 8–11 октября.",
-      "Тариф: " + t.name + " — " + t.sub.toLowerCase(),
-      "Нас: " + n + " чел.",
-      "Цена: " + rub(t.price) + " с человека, всего " + rub(total),
-      "Плачу сейчас: " + rub(due) + (sh === 100 ? " — всю сумму" : " — аванс 50%")
-    ];
-    if(who) lines.splice(1, 0, "От кого: " + who);
-    var msg = lines.join("\n");
-    document.getElementById("s-msg").textContent = msg;
-
-    var tg = document.getElementById("s-tg"), hint = document.getElementById("s-hint");
-    if(TG_HANDLE){
-      tg.href = "https://t.me/" + TG_HANDLE + "?text=" + encodeURIComponent(msg);
-      tg.hidden = false;
-      hint.textContent = PAY_URL
-        ? "Кнопка откроет чат со мной с готовым текстом. Оплатить можно сразу по ссылке рядом."
-        : "Кнопка откроет чат со мной с готовым текстом — останется нажать «отправить».";
-    } else {
-      tg.hidden = true;
-      hint.textContent = "Скопируйте текст и отправьте мне в личку — подтвержу бронь и пришлю реквизиты.";
-    }
+    var total = t.price * n, sh = payShare();
+    return {
+      tariff: t, people: n, price: t.price, total: total,
+      payMode: sh === 100 ? "полная оплата" : "аванс 50%",
+      due: Math.round(total * sh / 100),
+      who: fWho.value.trim(), tg: fTg.value.trim(), phone: fPhone.value.trim(),
+      comment: fComment.value.trim(), names: names()
+    };
   }
 
-  fRoom.addEventListener("change", function(){ fillN(); render(); });
-  fN.addEventListener("change", render);
-  fWho.addEventListener("input", render);
+  function message(d){
+    var lines = [
+      "Заявка на Гастро-Терем, 8–11 октября 2026.",
+      "",
+      "Тариф: " + d.tariff.name + " — " + d.tariff.sub.toLowerCase(),
+      "Нас: " + d.people + " чел.",
+      "Цена: " + rub(d.price) + " с человека, всего " + rub(d.total),
+      "Плачу сейчас: " + rub(d.due) + " — " + d.payMode,
+      "",
+      "Участники:"
+    ];
+    d.names.forEach(function(nm, k){ lines.push("  " + (k + 1) + ". " + (nm || "—")); });
+    lines.push("");
+    lines.push("Связь: " + [d.tg, d.phone].filter(String).join(", "));
+    if(d.comment) lines.push("Комментарий: " + d.comment);
+    return lines.join("\n");
+  }
+
+  function render(){
+    var d = state();
+    $("s-room").textContent  = "Тариф «" + d.tariff.name + "»";
+    $("s-seats").textContent = WORDS[d.people];
+    $("s-fix").textContent   = rub(d.price - PROGRAM);
+    $("s-per").textContent   = rub(d.price);
+    $("s-total-lbl").textContent = d.people === 1 ? "Итого" : "Итого за " + d.people + " человек";
+    $("s-total").textContent = rub(d.total);
+    $("s-pay-lbl").textContent = payShare() === 100
+      ? "К оплате сейчас, полностью" : "К оплате сейчас, аванс 50%";
+    $("s-pay").textContent   = rub(d.due);
+
+    var msg = message(d);
+    $("s-msg").textContent = msg;
+
+    var tg = $("s-tg");
+    if(TG_HANDLE) tg.href = "https://t.me/" + TG_HANDLE + "?text=" + encodeURIComponent(msg);
+    $("s-hint").textContent = TG_HANDLE
+      ? "Кнопка откроет чат со мной с готовым текстом — останется нажать «отправить»."
+      : "Скопируйте текст и отправьте мне в личку.";
+    return msg;
+  }
+
+  /* пустые обязательные поля подсвечиваем и возвращаем список проблем */
+  function problems(){
+    var out = [];
+    [[fWho, "кто бронирует"]].forEach(function(pair){
+      pair[0].classList.toggle("bad", !pair[0].value.trim());
+      if(!pair[0].value.trim()) out.push(pair[1]);
+    });
+    var empty = 0;
+    nameInputs().forEach(function(i){
+      var bad = !i.value.trim();
+      i.classList.toggle("bad", bad);
+      if(bad) empty++;
+    });
+    if(empty) out.push("ФИО участников");
+    var noContact = !fTg.value.trim() && !fPhone.value.trim();
+    fTg.classList.toggle("bad", noContact);
+    fPhone.classList.toggle("bad", noContact);
+    if(noContact) out.push("телеграм или телефон");
+    return out;
+  }
+
+  /* заявка в таблицу: sendBeacon переживает переход на t.me */
+  function toSheet(d){
+    if(!SHEET_ENDPOINT) return false;
+    var body = JSON.stringify({
+      who: d.who, tg: d.tg, phone: d.phone,
+      tariff: d.tariff.name, people: d.people, price: d.price, total: d.total,
+      payMode: d.payMode, due: d.due, names: d.names, comment: d.comment
+    });
+    try {
+      if(navigator.sendBeacon){
+        return navigator.sendBeacon(SHEET_ENDPOINT, new Blob([body], {type:"text/plain;charset=UTF-8"}));
+      }
+      fetch(SHEET_ENDPOINT, {method:"POST", mode:"no-cors", keepalive:true,
+        headers:{"Content-Type":"text/plain;charset=UTF-8"}, body:body});
+      return true;
+    } catch(e){ return false; }
+  }
+
+  function submit(ev){
+    var bad = problems();
+    if(bad.length){
+      ev.preventDefault();
+      var s = $("s-sent");
+      s.className = "sent on";
+      s.style.color = "";
+      s.textContent = "Заполните: " + bad.join(", ") + ".";
+      var first = document.querySelector("input.bad");
+      if(first) first.focus();
+      return;
+    }
+    var d = state();
+    var ok = toSheet(d);
+    var s2 = $("s-sent");
+    s2.className = "sent on";
+    s2.textContent = ok
+      ? "Заявка записана. Открываю Телеграм — отправьте сообщение, чтобы я подтвердил бронь."
+      : "Открываю Телеграм — отправьте сообщение, чтобы я подтвердил бронь.";
+  }
+
+  fRoom.addEventListener("change", function(){ fillN(); fillNames(); render(); });
+  fN.addEventListener("change", function(){ fillNames(); render(); });
+  [fWho, fTg, fPhone, fComment].forEach(function(f){
+    f.addEventListener("input", function(){ this.classList.remove("bad"); render(); });
+  });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="pay"]'), function(i){
     i.addEventListener("change", render);
   });
 
-  document.getElementById("s-copy").addEventListener("click", function(){
-    var btn = this, msg = document.getElementById("s-msg").textContent;
+  $("s-tg").addEventListener("click", submit);
+
+  $("s-copy").addEventListener("click", function(){
+    var btn = this, msg = $("s-msg").textContent;
     function done(ok){
       btn.textContent = ok ? "Скопировано" : "Выделите текст выше";
       setTimeout(function(){ btn.textContent = "Скопировать текст"; }, 2200);
@@ -761,7 +992,41 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     document.querySelector(".actions").appendChild(pay);
   }
 
+  /* ---------- reels ---------- */
+  (function(){
+    var v = $("reel"), btn = $("reel-sound");
+    if(!v || !btn) return;
+
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(calm){
+      v.controls = true;
+      btn.hidden = true;
+      return;
+    }
+
+    v.autoplay = true;
+    v.play().catch(function(){ v.controls = true; });
+
+    /* играет только пока виден: не жжём батарею и трафик */
+    if(window.IntersectionObserver){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting) v.play().catch(function(){});
+          else v.pause();
+        });
+      }, {threshold: 0.25}).observe(v);
+    }
+
+    btn.addEventListener("click", function(){
+      v.muted = !v.muted;
+      btn.setAttribute("aria-pressed", String(!v.muted));
+      btn.textContent = v.muted ? "Включить звук" : "Выключить звук";
+      if(!v.muted) v.play().catch(function(){});
+    });
+  })();
+
   fillN();
+  fillNames();
   render();
 })();
 </script>
