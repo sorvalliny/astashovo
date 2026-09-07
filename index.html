@@ -97,64 +97,40 @@ section+section{border-top:1px solid var(--line)}
 .umbrella .soon{color:var(--muted);opacity:.6;cursor:default}
 
 /* ─── герой ─── */
-.hero{padding-top:clamp(42px,6vw,74px);padding-bottom:clamp(42px,6vw,66px)}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:end}
-@media(min-width:880px){.hero-grid{grid-template-columns:1fr 1.12fr;gap:44px}}
-@media(min-width:1100px){.hero .wrap{max-width:1180px}}
-.hero h1{margin:16px 0 0}
-.hero h1 em{font-style:italic;color:var(--bronze);font-weight:400}
-.hero-lead{font-size:1.14rem;color:var(--ink-soft);max-width:34ch;margin-top:20px}
-.facts{display:grid;grid-template-columns:repeat(2,1fr);margin-top:32px;
-  border-top:1px solid var(--line)}
-.fact{padding:15px 0}
-.fact:nth-child(odd){border-right:1px solid var(--line);padding-right:22px}
+.hero{position:relative;padding:0;border-bottom:1px solid var(--line)}
+.hero-media{position:relative;min-height:clamp(430px,64vh,660px);display:flex;align-items:flex-end;
+  background:#1A1206;overflow:hidden}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
+.hero-shade{position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(20,14,6,.5) 0%, rgba(20,14,6,.24) 36%, rgba(20,14,6,.9) 100%)}
+.hero-in{position:relative;width:100%;padding:0 0 clamp(28px,4vw,44px)}
+.hero h1{color:#FAF5EA;margin-top:14px}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero .eyebrow{color:#CBBCA2}
+.hero-lead{color:#EADFC9;font-size:1.12rem;max-width:40ch;margin-top:16px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);margin-top:28px;
+  border-top:1px solid rgba(255,255,255,.22)}
+@media(min-width:940px){.facts{grid-template-columns:repeat(4,auto);justify-content:start}}
+.fact{padding:14px 0}
+.fact:nth-child(odd){border-right:1px solid rgba(255,255,255,.22);padding-right:22px}
 .fact:nth-child(even){padding-left:22px}
-.fact:nth-child(n+3){border-top:1px solid var(--line)}
-@media(min-width:1260px){
-  .facts{grid-template-columns:repeat(4,auto);justify-content:start}
-  .fact{padding:15px 22px 15px 0;margin-right:22px;border-right:1px solid var(--line)}
+.fact:nth-child(n+3){border-top:1px solid rgba(255,255,255,.22)}
+@media(min-width:940px){
+  .fact{padding:14px 24px 14px 0;margin-right:24px;border-right:1px solid rgba(255,255,255,.22)}
   .fact:nth-child(even){padding-left:0}
   .fact:nth-child(n+3){border-top:0}
   .fact:last-child{border-right:0;margin-right:0;padding-right:0}
 }
-.fact dt{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;text-transform:uppercase;
-  letter-spacing:.17em;color:var(--muted);margin-bottom:6px}
-.fact dd{margin:0;font-size:1.02rem;font-weight:500;white-space:nowrap}
+.fact dt{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.62rem;text-transform:uppercase;
+  letter-spacing:.18em;color:#BCAB8E;margin-bottom:5px}
+.fact dd{margin:0;font-size:1.02rem;font-weight:500;color:#FAF5EA;white-space:nowrap}
 
-.terem{width:100%;height:auto;max-width:620px;max-height:480px;margin-inline:auto;
-  display:block;color:var(--pine)}
-.terem .ln{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linejoin:round;stroke-linecap:round}
-.terem .fine{stroke-width:.8;opacity:.72}
-.terem .dot{fill:var(--bronze);opacity:.9}
-.terem .glow{fill:var(--gold);opacity:.2}
 @media (prefers-reduced-motion: no-preference){
-  .terem .ln{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s cubic-bezier(.6,.05,.3,1) forwards}
-  .terem .d2{animation-delay:.18s} .terem .d3{animation-delay:.36s} .terem .d4{animation-delay:.52s}
-  .terem .dot,.terem .glow{opacity:0;animation:pop .5s ease .95s forwards}
-  .terem .glow{--to:.2}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @keyframes pop{to{opacity:var(--to,.9)}}
-  .hero h1,.hero-lead,.hero .facts,.hero .eyebrow{animation:rise .7s cubic-bezier(.2,.7,.3,1) backwards}
-  .hero .eyebrow{animation-delay:.02s} .hero h1{animation-delay:.08s}
-  .hero-lead{animation-delay:.16s} .hero .facts{animation-delay:.24s}
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+  .hero h1,.hero-lead,.hero .facts,.hero .eyebrow{animation:rise .75s cubic-bezier(.2,.7,.3,1) backwards}
+  .hero .eyebrow{animation-delay:.05s} .hero h1{animation-delay:.12s}
+  .hero-lead{animation-delay:.2s} .hero .facts{animation-delay:.28s}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}}
 }
-
-/* ─── reels ─── */
-.why{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
-@media(min-width:560px){.why{max-width:520px;margin-inline:auto}}
-@media(min-width:880px){.why{grid-template-columns:300px 1fr;gap:54px;max-width:none;margin-inline:0}}
-.reel{margin:0;display:flex;flex-direction:column;gap:11px}
-.reel-frame{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--line-strong);
-  background:var(--paper-2);box-shadow:var(--shadow)}
-.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--paper-2)}
-.sound{position:absolute;right:10px;bottom:10px;font-family:"JetBrains Mono",ui-monospace,monospace;
-  font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:#fff;cursor:pointer;
-  background:rgba(20,17,12,.62);border:1px solid rgba(255,255,255,.32);border-radius:100px;
-  padding:7px 13px;backdrop-filter:blur(6px);transition:background .15s ease}
-.sound:hover{background:rgba(20,17,12,.82)}
-.reel figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;
-  text-transform:uppercase;letter-spacing:.15em;color:var(--muted);text-align:center}
 
 .quote{border-left:2px solid var(--gold);padding:4px 0 4px 26px;
   font-family:Cormorant,Georgia,serif;font-size:1.42rem;line-height:1.45;color:var(--ink)}
@@ -409,43 +385,21 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
 </div>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Костромская область · Чухломский район</p>
-      <h1>Гастро&#8209;Терем<br><em>Асташово</em></h1>
-      <p class="hero-lead">Выкупаем терем целиком на три ночи. Своя кухня, свой лес, своя баня, заброшенный терем за рекой.</p>
-      <dl class="facts">
-        <div class="fact"><dt>Даты</dt><dd class="num">8–11 октября 2026</dd></div>
-        <div class="fact"><dt>Формат</dt><dd>чт — вс, 3 ночи</dd></div>
-        <div class="fact"><dt>Группа</dt><dd class="num">до 25 человек</dd></div>
-        <div class="fact"><dt>От</dt><dd class="num">48 000 ₽</dd></div>
-      </dl>
-    </div>
-    <div>
-      <svg class="terem" viewBox="0 0 260 212" role="img" aria-label="Силуэт Лесного терема в Асташово">
-        <path class="ln" pathLength="1" d="M14 198 H246"></path>
-        <path class="ln d2" pathLength="1" d="M42 198 V128 H130 V198"></path>
-        <path class="ln d2" pathLength="1" d="M30 130 L86 88 L142 130"></path>
-        <path class="ln d3" pathLength="1" d="M150 198 V80 H214 V198"></path>
-        <path class="ln d3" pathLength="1" d="M140 80 L182 22 L224 80"></path>
-        <path class="ln d4 fine" pathLength="1" d="M182 22 V8"></path>
-        <path class="ln d4 fine" pathLength="1" d="M143 118 H221"></path>
-        <path class="ln d4 fine" pathLength="1" d="M143 118 V127 H221 V118"></path>
-        <path class="ln d4 fine" pathLength="1" d="M166 142 H198 V178 H166 Z"></path>
-        <path class="ln d4 fine" pathLength="1" d="M182 142 V178"></path>
-        <path class="ln d4 fine" pathLength="1" d="M170 90 H194 V112 H170 Z"></path>
-        <path class="ln d4 fine" pathLength="1" d="M54 144 H74 V170 H54 Z"></path>
-        <path class="ln d4 fine" pathLength="1" d="M100 144 H120 V170 H100 Z"></path>
-        <path class="ln d4 fine" pathLength="1" d="M80 160 H98 V198 H80 Z"></path>
-        <circle class="glow" cx="182" cy="160" r="21"></circle>
-        <circle class="dot" cx="182" cy="5" r="3.4"></circle>
-        <circle class="dot" cx="48" cy="126" r="2"></circle>
-        <circle class="dot" cx="63" cy="115" r="2"></circle>
-        <circle class="dot" cx="78" cy="104" r="2"></circle>
-        <circle class="dot" cx="94" cy="104" r="2"></circle>
-        <circle class="dot" cx="109" cy="115" r="2"></circle>
-        <circle class="dot" cx="124" cy="126" r="2"></circle>
-      </svg>
+  <div class="hero-media">
+    <img src="media/hero.jpg" alt="Лесной терем в Асташово вечером" width="1600" height="1000">
+    <div class="hero-shade"></div>
+    <div class="hero-in">
+      <div class="wrap">
+        <p class="eyebrow">Костромская область · Чухломский район</p>
+        <h1>Гастро&#8209;Терем<br><em>Асташово</em></h1>
+        <p class="hero-lead">Выкупаем терем целиком на три ночи. Своя кухня, свой лес, своя баня, заброшенный терем за рекой.</p>
+        <dl class="facts">
+          <div class="fact"><dt>Даты</dt><dd class="num">8–11 октября 2026</dd></div>
+          <div class="fact"><dt>Формат</dt><dd>чт — вс, 3 ночи</dd></div>
+          <div class="fact"><dt>Группа</dt><dd class="num">до 25 человек</dd></div>
+          <div class="fact"><dt>От</dt><dd class="num">48 000 ₽</dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </header>
