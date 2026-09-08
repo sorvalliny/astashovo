@@ -132,6 +132,22 @@ section+section{border-top:1px solid var(--line)}
   @keyframes rise{from{opacity:0;transform:translateY(16px)}}
 }
 
+/* ─── reels ─── */
+.why{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media(min-width:560px){.why{max-width:520px;margin-inline:auto}}
+@media(min-width:880px){.why{grid-template-columns:300px 1fr;gap:54px;max-width:none;margin-inline:0}}
+.reel{margin:0;display:flex;flex-direction:column;gap:11px}
+.reel-frame{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--line-strong);
+  background:var(--paper-2);box-shadow:var(--shadow)}
+.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--paper-2)}
+.sound{position:absolute;right:10px;bottom:10px;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:#fff;cursor:pointer;
+  background:rgba(20,17,12,.62);border:1px solid rgba(255,255,255,.32);border-radius:100px;
+  padding:7px 13px;backdrop-filter:blur(6px);transition:background .15s ease}
+.sound:hover{background:rgba(20,17,12,.82)}
+.reel figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;
+  text-transform:uppercase;letter-spacing:.15em;color:var(--muted);text-align:center}
+
 .quote{border-left:2px solid var(--gold);padding:4px 0 4px 26px;
   font-family:Cormorant,Georgia,serif;font-size:1.42rem;line-height:1.45;color:var(--ink)}
 .quote p+p{margin-top:15px}
