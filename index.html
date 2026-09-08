@@ -179,7 +179,6 @@ section+section{border-top:1px solid var(--line)}
   background:linear-gradient(90deg,var(--gold),transparent)}
 .part .tag{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.64rem;text-transform:uppercase;
   letter-spacing:.17em;color:var(--muted)}
-.part .big{font-family:Cormorant,Georgia,serif;font-size:2.3rem;line-height:1;color:var(--bronze)}
 .part ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .part li{padding:8px 0 8px 24px;position:relative;font-size:.94rem;color:var(--ink-soft);
   border-top:1px solid var(--line)}
@@ -219,8 +218,6 @@ section+section{border-top:1px solid var(--line)}
   font-size:1.72rem;font-weight:500;color:var(--bronze);line-height:1.1}
 .t-price small{display:block;font-size:.62rem;font-weight:400;letter-spacing:.15em;
   text-transform:uppercase;color:var(--muted);margin-top:5px}
-.t-split{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.7rem;color:var(--muted);
-  padding:9px 12px;background:var(--paper-2);border-radius:2px}
 .tariff ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;margin-top:auto}
 .tariff li{padding:8px 0 8px 22px;position:relative;font-size:.9rem;color:var(--ink-soft);
   border-top:1px solid var(--line)}
@@ -544,17 +541,17 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
 <section>
   <div class="wrap">
     <div class="head narrow">
-      <p class="eyebrow">Из чего складывается цена</p>
-      <h2>Общее плюс место</h2>
-      <p>Общая часть одинакова для всех — и для того, кто спит в домике, и для того, кто занял лучший номер в тереме. Разницу даёт только место: чем теснее компания в комнате, тем дешевле каждому. Внутри тарифа цена не меняется.</p>
+      <p class="eyebrow">Что включено</p>
+      <h2>Всё, кроме бара</h2>
+      <p>Состав одинаков для всех тарифов — и для тех, кто спит в домике, и для тех, кто занял лучший номер в тереме. Разница только в комнате.</p>
     </div>
     <div class="anatomy">
       <div class="part">
-        <span class="tag">Общая часть · одинаково для всех</span>
-        <span class="big num">34 500 ₽</span>
+        <span class="tag">В стоимость участия</span>
         <ul>
           <li>Трансфер Москва — Асташово — Москва</li>
           <li>Обед и вода в дорогу</li>
+          <li>Проживание 3 ночи</li>
           <li>Всё питание: завтраки, обеды, ужины</li>
           <li>Продукты и работа шефа на Битве шефов</li>
           <li>Баня по-чёрному и чан</li>
@@ -564,10 +561,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
         </ul>
       </div>
       <div class="part">
-        <span class="tag">Место · зависит от тарифа</span>
-        <span class="big num">13 500 — 43 500 ₽</span>
-        <p class="sub">Три тарифа, ниже. Внутри тарифа цена одна: едете втроём или вшестером — платите одинаково. Чем больше вас в комнате, тем дешевле выходит место.</p>
-        <span class="tag" style="margin-top:6px">Отдельно, на месте</span>
+        <span class="tag">Отдельно, на месте</span>
         <ul>
           <li>Общий бар — скидываемся, как всегда</li>
           <li>Квадроциклы</li>
@@ -643,8 +637,6 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
       </div>
       <div class="summary">
         <div class="sum-row"><span id="s-room">—</span><span class="v" id="s-seats">—</span></div>
-        <div class="sum-row"><span>Место в тарифе</span><span class="v" id="s-fix">—</span></div>
-        <div class="sum-row"><span>Общая часть на человека</span><span class="v num">34 500 ₽</span></div>
         <div class="sum-row"><span>Цена с человека</span><span class="v" id="s-per">—</span></div>
         <div class="sum-row"><span id="s-total-lbl">Итого</span><span class="v" id="s-total">—</span></div>
         <div class="sum-row pay"><span id="s-pay-lbl">К оплате сейчас</span><span class="v" id="s-pay">—</span></div>
@@ -723,9 +715,6 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
   var PAY_URL        = "";
   /* =================================== */
 
-  /* Общая часть на человека. Одинакова для всех и входит в каждый тариф. */
-  var PROGRAM = 34500;
-
   /* Три тарифа. price — за человека на весь выезд, внутри тарифа не меняется:
      втроём и вшестером в «Трио+» платят одинаково.                          */
   var TARIFFS = [
@@ -764,8 +753,6 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     var price = el("div", "t-price", rub(t.price));
     price.appendChild(el("small", null, "с человека за весь выезд"));
     card.appendChild(price);
-    card.appendChild(el("div", "t-split",
-      rub(t.price - PROGRAM) + " место  +  " + rub(PROGRAM) + " общее"));
     card.appendChild(el("p", "t-sub", t.note));
     var ul = document.createElement("ul");
     t.rooms.forEach(function(r){ ul.appendChild(el("li", null, r)); });
@@ -868,7 +855,6 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
     var d = state();
     $("s-room").textContent  = "Тариф «" + d.tariff.name + "»";
     $("s-seats").textContent = WORDS[d.people];
-    $("s-fix").textContent   = rub(d.price - PROGRAM);
     $("s-per").textContent   = rub(d.price);
     $("s-total-lbl").textContent = d.people === 1 ? "Итого" : "Итого за " + d.people + " человек";
     $("s-total").textContent = rub(d.total);
