@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Гастро-Терем Асташово</title>
-<meta name="description" content="Выезд в Лесной терем Асташово 8–11 октября 2026: три ночи, выкупаем усадьбу целиком, Битва шефов, баня по-чёрному, заброшенный терем в Погорелово.">
+<meta name="description" content="Выезд в Лесной терем Асташово 29 октября — 1 ноября 2026: три ночи, выкупаем усадьбу целиком, Битва шефов, баня по-чёрному, заброшенный терем в Погорелово.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F4EDDF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14110C" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="Гастро-Терем · Асташово · 8–11 октября 2026">
-<meta property="og:description" content="Три ночи в Лесном тереме. Выкупаем усадьбу целиком: Битва шефов, баня по-чёрному, заброшенный терем в Погорелово.">
-<meta property="og:image" content="https://sorvalliny.github.io/astashovo/og.png">
+<meta property="og:title" content="Гастро-Терем · Асташово · 29 октября — 1 ноября 2026">
+<meta property="og:description" content="Три ночи в Лесном тереме на Хеллоуин. Выкупаем усадьбу целиком: Битва шефов, баня по-чёрному, заброшенный терем в Погорелово.">
+<meta property="og:image" content="https://sorvalliny.github.io/astashovo/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,6 +223,64 @@ section+section{border-top:1px solid var(--line)}
   border-top:1px solid var(--line)}
 .tariff li::before{content:"";position:absolute;left:0;top:1.02em;width:8px;height:1.5px;background:var(--gold)}
 
+/* ─── атмосфера ─── */
+.atmo{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:640px){.atmo{grid-template-columns:repeat(4,1fr)}}
+.atmo figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.atmo img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:2px;
+  border:1px solid var(--line);background:var(--paper-2);
+  transition:transform .25s ease, border-color .25s ease}
+.atmo figure:hover img{transform:translateY(-3px);border-color:var(--line-strong)}
+@media (prefers-reduced-motion: reduce){.atmo figure:hover img{transform:none}}
+.atmo figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
+
+/* ─── карта ─── */
+.mapfig{margin:0 0 34px}
+.map{display:block;width:100%;height:auto;min-width:600px}
+.mapfig{overflow-x:auto}
+.map .road{stroke:var(--line-strong);stroke-width:2;stroke-dasharray:7 6}
+.map circle{fill:var(--paper);stroke:var(--gold);stroke-width:2}
+.map .end circle{fill:var(--bronze);stroke:var(--bronze)}
+.map .mid circle{stroke:var(--line-strong)}
+.map .ttl{font-family:Cormorant,Georgia,serif;font-size:20px;fill:var(--ink);text-anchor:middle}
+.map .end .ttl{fill:var(--bronze-ink);font-weight:600}
+.map .sub{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;fill:var(--muted);
+  text-anchor:middle;letter-spacing:.08em}
+.mapfig figcaption{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);text-align:center;margin-top:4px}
+
+.places{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:2px;overflow:hidden}
+@media(min-width:620px){.places{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.places{grid-template-columns:repeat(4,1fr)}}
+.place{background:var(--paper);padding:22px 22px 20px;display:flex;flex-direction:column;gap:8px}
+.place .pk{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--bronze-ink)}
+.place h3{font-family:Cormorant,Georgia,serif;font-weight:500;font-size:1.3rem}
+.place p{font-size:.92rem;color:var(--ink-soft)}
+.maphint{margin-top:20px;font-size:.88rem;color:var(--muted)}
+
+/* ─── погода ─── */
+.weather{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:2px;overflow:hidden}
+@media(min-width:760px){.weather{grid-template-columns:repeat(4,1fr)}}
+.wcard{background:var(--paper);padding:20px 20px 18px;display:flex;flex-direction:column;gap:6px}
+.wk{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--muted)}
+.wv{font-family:Cormorant,Georgia,serif;font-size:2rem;line-height:1;color:var(--bronze)}
+.wn{font-size:.82rem;color:var(--muted);line-height:1.45}
+.wsrc{margin-top:12px;font-size:.8rem;color:var(--muted)}
+
+/* ─── таблицы номеров ─── */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:2px;background:var(--paper)}
+.tw table{border-collapse:collapse;width:100%;min-width:440px;font-size:.94rem}
+.tw th,.tw td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+.tw th{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.6rem;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--muted);font-weight:400;background:var(--paper-2);white-space:nowrap}
+.tw tbody tr:last-child td{border-bottom:0}
+.tw td strong{font-family:Cormorant,Georgia,serif;font-weight:500;font-size:1.16rem}
+
 /* ─── комнаты ─── */
 .corpus{margin-top:46px}
 .corpus:first-of-type{margin-top:0}
@@ -407,7 +465,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
         <h1>Гастро&#8209;Терем<br><em>Асташово</em></h1>
         <p class="hero-lead">Выкупаем терем целиком на три ночи. Своя кухня, свой лес, своя баня, заброшенный терем за рекой.</p>
         <dl class="facts">
-          <div class="fact"><dt>Даты</dt><dd class="num">8–11 октября 2026</dd></div>
+          <div class="fact"><dt>Даты</dt><dd class="num">29 окт — 1 ноя 2026</dd></div>
           <div class="fact"><dt>Формат</dt><dd>чт — вс, 3 ночи</dd></div>
           <div class="fact"><dt>Группа</dt><dd class="num">до 25 человек</dd></div>
           <div class="fact"><dt>От</dt><dd class="num">48 000 ₽</dd></div>
@@ -449,20 +507,21 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
       <p class="eyebrow">Программа</p>
       <h2>Четыре дня</h2>
       <p>Каждый вечер один из наших выходит на кухню и делает своё блюдо к общему столу — под присмотром приглашённого шефа. В воскресенье выбираем победителя. Помогать на кухне можно и нужно: это половина удовольствия.</p>
+      <p>Суббота выпадает ровно на 31 октября, так что вечер — тематический. Костюм или деталь образа приветствуются, но никто не обязан: тема свободная, от «просто чёрный свитер» до полного грима. Терем 1897 года постройки со свечами и скрипучими лестницами всё сделает за нас.</p>
     </div>
     <div class="days">
       <article class="day-row">
-        <div class="day-mark"><span class="dw">Четверг</span><span class="dd num">08</span></div>
+        <div class="day-mark"><span class="dw">Четверг</span><span class="dd num">29</span></div>
         <div class="day-body">
           <h3>Дорога</h3>
-          <p>Выезжаем из Москвы рано на комфортных микроавтобусах. В пути 5–7 часов без остановок. По дороге — Ростов Великий и Кострома, по желанию группы. Обед и вода в дорогу с нас: гастро-часть начинается сразу.</p>
+          <p>Выезжаем из Москвы в 10 утра на комфортных микроавтобусах. В пути 5–7 часов без остановок. По дороге — Ростов Великий и Кострома, по желанию группы. Обед и вода в дорогу с нас: гастро-часть начинается сразу.</p>
           <p>На месте расселяемся. <span class="chef">Первый выход на кухню</span> — ужин задаёт планку двум остальным. Костёр.</p>
         </div>
         <img class="day-photo" src="media/day-thu.jpg" alt="Терем Асташово в первый вечер"
              loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
-        <div class="day-mark"><span class="dw">Пятница</span><span class="dd num">09</span></div>
+        <div class="day-mark"><span class="dw">Пятница</span><span class="dd num">30</span></div>
         <div class="day-body">
           <h3>Лес и баня</h3>
           <p>Трекинг 7 км по обустроенному маршруту, грибы и ягоды. Что нашли — идёт в дело.</p>
@@ -472,24 +531,107 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
              loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
-        <div class="day-mark"><span class="dw">Суббота</span><span class="dd num">10</span></div>
+        <div class="day-mark"><span class="dw">Суббота</span><span class="dd num">31</span></div>
         <div class="day-body">
-          <h3>Погорелово</h3>
-          <p>Переходим реку вброд и идём к терему в Погорелово — заброшенному, без электричества и туристов. Обратно на лодке.</p>
-          <p>Вечером делаем настойки и тут же их дегустируем. <span class="chef">Финальный выход на кухню</span> и общее голосование. Костёр до последнего.</p>
+          <h3>Погорелово и канун</h3>
+          <p>Переходим реку вброд и идём к терему в Погорелово — заброшенному, без электричества и туристов. Пустые комнаты, облупившаяся краска, тишина. Лучшая декорация для 31 октября, какую можно придумать. Обратно на лодке.</p>
+          <p>Вечером делаем настойки и тут же их дегустируем. <span class="chef">Финальный выход на кухню</span> — тематический ужин и общее голосование. Свечи, страшные истории, костёр до последнего.</p>
         </div>
         <img class="day-photo" src="media/day-sat.jpg" alt="Заброшенный терем в Погорелово"
              loading="lazy" decoding="async" width="500" height="783">
       </article>
       <article class="day-row">
-        <div class="day-mark"><span class="dw">Воскресенье</span><span class="dd num">11</span></div>
+        <div class="day-mark"><span class="dw">Воскресенье</span><span class="dd num">01</span></div>
         <div class="day-body">
           <h3>Домой</h3>
-          <p>Завтрак, объявляем победителя, сборы, выезд в Москву.</p>
+          <p>Завтрак, объявляем победителя Битвы шефов, сборы. Выезд из усадьбы в 12:00, в Москве вечером.</p>
         </div>
         <img class="day-photo" src="media/day-sun.jpg" alt="Общий стол в тереме"
              loading="lazy" decoding="async" width="500" height="783">
       </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head narrow">
+      <p class="eyebrow">Где это</p>
+      <h2>Дорога и окрестности</h2>
+      <p>Костромская область, Чухломский район. Около 600 километров от Москвы — по желанию группы заезжаем в Ростов Великий и Кострому.</p>
+    </div>
+
+    <figure class="mapfig">
+      <svg class="map" viewBox="0 0 900 210" role="img"
+           aria-label="Маршрут: Москва, Ростов Великий, Кострома, Асташово, около 600 километров">
+        <line class="road" x1="70" y1="120" x2="830" y2="120"></line>
+        <g class="stop">
+          <circle cx="70" cy="120" r="7"></circle>
+          <text class="ttl" x="70" y="98">Москва</text>
+          <text class="sub" x="70" y="146">выезд в 10:00</text>
+        </g>
+        <g class="stop mid">
+          <circle cx="320" cy="120" r="5"></circle>
+          <text class="ttl" x="320" y="98">Ростов Великий</text>
+          <text class="sub" x="320" y="146">220 км · по желанию</text>
+        </g>
+        <g class="stop mid">
+          <circle cx="545" cy="120" r="5"></circle>
+          <text class="ttl" x="545" y="98">Кострома</text>
+          <text class="sub" x="545" y="146">370 км · по желанию</text>
+        </g>
+        <g class="stop end">
+          <circle cx="830" cy="120" r="9"></circle>
+          <text class="ttl" x="830" y="98">Асташово</text>
+          <text class="sub" x="830" y="146">≈600 км · 5–7 часов</text>
+        </g>
+      </svg>
+      <figcaption>Схема маршрута, не масштаб</figcaption>
+    </figure>
+
+    <div class="places">
+      <div class="place">
+        <span class="pk">Усадьба</span>
+        <h3>Терем и флигель</h3>
+        <p>Главный дом, флигель, три домика, баня по-чёрному и чан. Всё на одной территории, между корпусами — минута пешком.</p>
+      </div>
+      <div class="place">
+        <span class="pk">7 км пешком</span>
+        <h3>Лес и маршрут</h3>
+        <p>Обустроенная тропа вокруг усадьбы. В конце октября грибов уже нет, зато есть тишина, мох и голые деревья.</p>
+      </div>
+      <div class="place">
+        <span class="pk">Через реку</span>
+        <h3>Погорелово</h3>
+        <p>Второй терем той же эпохи, заброшенный: без электричества, туристов и реставрации. Переходим вброд, обратно на лодке.</p>
+      </div>
+      <div class="place">
+        <span class="pk">Рядом</span>
+        <h3>Чухломское озеро</h3>
+        <p>Одно из крупнейших в области, в получасе езды. Древняя Чухлома известна с XIV века.</p>
+      </div>
+    </div>
+
+    <p class="maphint">Точка на карте и навигация — <a href="https://astashovo.com/" target="_blank" rel="noopener">на сайте усадьбы</a>. Своим ходом добираться не нужно: едем вместе на микроавтобусах.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head narrow">
+      <p class="eyebrow">Атмосфера</p>
+      <h2>Внутри 1897 года</h2>
+      <p>Терем построил крестьянин-отходник Мартьян Сазонов после того, как заработал в Петербурге. Дом стоял в лесу заброшенным полвека, пока его не разобрали, не перевезли и не собрали заново. Витражи, резьба, буфеты и граммофон — всё внутри настоящее, а не декорация под старину.</p>
+    </div>
+    <div class="atmo">
+      <figure><img src="media/at-vitrazh.jpg" alt="Витраж в тереме" loading="lazy" decoding="async" width="560" height="877"><figcaption>Витражи</figcaption></figure>
+      <figure><img src="media/at-dining.jpg" alt="Столовая с витражами и лампой" loading="lazy" decoding="async" width="560" height="877"><figcaption>Столовая</figcaption></figure>
+      <figure><img src="media/at-gramophone.jpg" alt="Граммофон с пластинкой" loading="lazy" decoding="async" width="560" height="877"><figcaption>Граммофон</figcaption></figure>
+      <figure><img src="media/at-bufet.jpg" alt="Буфет с посудой" loading="lazy" decoding="async" width="560" height="877"><figcaption>Буфет</figcaption></figure>
+      <figure><img src="media/at-portraits.jpg" alt="Стена со старыми фотографиями" loading="lazy" decoding="async" width="560" height="877"><figcaption>Фотографии</figcaption></figure>
+      <figure><img src="media/at-pryalki.jpg" alt="Расписные прялки" loading="lazy" decoding="async" width="560" height="877"><figcaption>Прялки</figcaption></figure>
+      <figure><img src="media/at-rezba.jpg" alt="Резьба и чердачное окно" loading="lazy" decoding="async" width="560" height="877"><figcaption>Резьба</figcaption></figure>
+      <figure><img src="media/at-abandoned.jpg" alt="Заброшенный интерьер терема в Погорелово" loading="lazy" decoding="async" width="560" height="877"><figcaption>Погорелово</figcaption></figure>
     </div>
   </div>
 </section>
@@ -558,6 +700,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <li>Прогулка по лесу, 7 км с сопровождением</li>
           <li>Переход к терему в Погорелово и лодка</li>
           <li>Настойки: мастер-класс и дегустация</li>
+          <li>Тематический вечер 31 октября: свечи, страшные истории</li>
         </ul>
       </div>
       <div class="part">
@@ -569,6 +712,70 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
           <li>Всё прочее по желанию</li>
         </ul>
         <p class="sub">Цены итоговые: налог уже внутри, доплат не будет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head narrow">
+      <p class="eyebrow">Размещение</p>
+      <h2>Двенадцать комнат</h2>
+      <p>Главный дом 1897 года, флигель и три отдельных домика. Тридцать четыре спальных места, но за столы одновременно садится 25 человек — это и есть потолок группы. Какая комната достанется — решаем при бронировании, по очереди заявок.</p>
+    </div>
+
+    <div class="corpus">
+      <div class="corpus-head">
+        <h3>Терем</h3>
+        <span class="meta">Главный дом 1897 года · 6 номеров · 11 мест</span>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Номер</th><th>Мест</th><th>Удобства</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Вига</strong></td><td class="num">2</td><td>душ и санузел в номере</td></tr>
+            <tr><td><strong>Идол</strong></td><td class="num">2</td><td>душ и санузел в номере</td></tr>
+            <tr><td><strong>Соня</strong></td><td class="num">2</td><td>на этаже</td></tr>
+            <tr><td><strong>Нея</strong></td><td class="num">2</td><td>на этаже</td></tr>
+            <tr><td><strong>Мелша</strong></td><td class="num">2</td><td>на этаже</td></tr>
+            <tr><td><strong>Ида</strong></td><td class="num">1</td><td>на этаже</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="corpus">
+      <div class="corpus-head">
+        <h3>Флигель</h3>
+        <span class="meta">Русский север и скандинавия · 3 номера · 7 мест</span>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Номер</th><th>Мест</th><th>Удобства</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ракостель</strong></td><td class="num">3</td><td>две комнаты, душ и санузел в номере</td></tr>
+            <tr><td><strong>Воча</strong></td><td class="num">2</td><td>душ и санузел в номере</td></tr>
+            <tr><td><strong>Тутка</strong></td><td class="num">2</td><td>душ и санузел в номере</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="corpus">
+      <div class="corpus-head">
+        <h3>Домики</h3>
+        <span class="meta">Отдельно стоящие · 3 дома · 16 мест</span>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Дом</th><th>Мест</th><th>Удобства</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Домик I</strong></td><td class="num">5</td><td>свой дом целиком, всё внутри</td></tr>
+            <tr><td><strong>Домик II</strong></td><td class="num">5</td><td>свой дом целиком, всё внутри</td></tr>
+            <tr><td><strong>Домик III</strong></td><td class="num">6</td><td>свой дом целиком, всё внутри</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -656,19 +863,57 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
   <div class="wrap">
     <div class="head narrow">
       <p class="eyebrow">Сборы</p>
-      <h2>Что взять</h2>
+      <h2>Погода и вещи</h2>
+      <p>Конец октября в Костромской области — это уже не осень, а её край. Данные ниже — по трём последним годам за те же числа.</p>
     </div>
-    <div class="cols">
-      <ul class="ticks">
-        <li>Тёплые вещи и непромокаемую куртку</li>
-        <li>Резиновые сапоги — для брода и леса</li>
-        <li>Банные принадлежности</li>
-      </ul>
-      <ul class="ticks">
-        <li>Личную аптечку</li>
-        <li>Паспорт</li>
-        <li>Гитару, настолки, карты</li>
-      </ul>
+
+    <div class="weather">
+      <div class="wcard">
+        <span class="wk">Днём</span>
+        <span class="wv num">+3 °C</span>
+        <span class="wn">в среднем, бывало от −1 до +8</span>
+      </div>
+      <div class="wcard">
+        <span class="wk">Ночью</span>
+        <span class="wv num">−1 °C</span>
+        <span class="wn">половина ночей ниже нуля</span>
+      </div>
+      <div class="wcard">
+        <span class="wk">Снег</span>
+        <span class="wv num">8 из 12</span>
+        <span class="wn">суток со снегом за три года</span>
+      </div>
+      <div class="wcard">
+        <span class="wk">Светло</span>
+        <span class="wv num">до 17:00</span>
+        <span class="wn">темнеет рано, фонарик пригодится</span>
+      </div>
+    </div>
+    <p class="wsrc">Источник: архив наблюдений по Чухломскому району за 29 октября — 1 ноября 2023, 2024 и 2025 годов.</p>
+
+    <div class="cols" style="margin-top:36px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">Обязательно</p>
+        <ul class="ticks">
+          <li><b>Тёплая непромокаемая куртка.</b> Дождь со снегом — норма для этих дат</li>
+          <li><b>Термобелье или флис.</b> Ночью минус, дом старый</li>
+          <li><b>Тёплая непромокаемая обувь.</b> Резиновые сапоги для брода, но в них холодно — берите две пары</li>
+          <li><b>Шапка, перчатки, тёплые носки.</b> Две пары носков не помешают</li>
+          <li><b>Фонарик.</b> Темнеет в пятом часу, а мы ходим в лес и к костру</li>
+          <li><b>Личная аптечка и паспорт</b></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">По желанию</p>
+        <ul class="ticks">
+          <li><b>Банные принадлежности.</b> Баня по-чёрному и чан под открытым небом</li>
+          <li><b>Костюм или деталь образа.</b> Суббота — 31 октября, тема свободная</li>
+          <li><b>Купальник.</b> Для чана</li>
+          <li><b>Гитара, настолки, карты</b></li>
+          <li><b>Термос.</b> На трекинге пригодится</li>
+          <li><b>Плед.</b> Для вечера на веранде</li>
+        </ul>
+      </div>
     </div>
     <div class="note">
       <p><strong>Мест мало: усадьба физически не резиновая.</strong> Четверг и пятница — рабочие дни, отпрашивайтесь заранее. Формат прежний: свои для своих.</p>
@@ -835,7 +1080,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:46px 0 5
 
   function message(d){
     var lines = [
-      "Заявка на Гастро-Терем, 8–11 октября 2026.",
+      "Заявка на Гастро-Терем, 29 октября — 1 ноября 2026.",
       "",
       "Тариф: " + d.tariff.name + " — " + d.tariff.sub.toLowerCase(),
       "Нас: " + d.people + " чел.",
